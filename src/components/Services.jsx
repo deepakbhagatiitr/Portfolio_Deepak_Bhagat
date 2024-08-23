@@ -8,24 +8,23 @@ const Services = () => {
     const [visibleServices, setVisibleServices] = useState(3); // State to manage visible services
 
     const showMoreServices = () => {
-        setVisibleServices(services.length); // Show all services
+        setFadeIn(true);
+        setTimeout(() => {
+            setVisibleServices((prev) => prev + 3);
+            setFadeIn(false);
+        }, 300);
+
     };
 
     const showLessServices = () => {
-        setVisibleServices(3); // Show only 3 services
+        setFadeIn(true);
+        setTimeout(() => {
+            setVisibleServices(3); // Show only 3 services
+            setFadeIn(false);
+        }, 300);
     };
 
     const services = [
-        {
-            name: "Web Development",
-            description: "Creating visually appealing and user-friendly websites tailored to your needs.",
-            icon: <FaCode />,
-        },
-        {
-            name: "UI/UX Design",
-            description: "Designing intuitive interfaces and seamless user experiences.",
-            icon: <FiLayout />,
-        },
         {
             name: "App Development",
             description: "Developing modern and efficient mobile applications.",
@@ -41,6 +40,17 @@ const Services = () => {
             description: "Streamlining software development and IT operations for faster delivery.",
             icon: <FaServer />,
         },
+        {
+            name: "Web Development",
+            description: "Creating visually appealing and user-friendly websites tailored to your needs.",
+            icon: <FaCode />,
+        },
+        {
+            name: "UI/UX Design",
+            description: "Designing intuitive interfaces and seamless user experiences.",
+            icon: <FiLayout />,
+        },
+
     ];
 
     return (
@@ -49,12 +59,12 @@ const Services = () => {
             <p className="w-full text-4xl font-bold text-center mb-14">My Services</p>
 
             {/* Service Cards Container with Grid System */}
-            <div 
+            <div
                 className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 lg:grid-cols-3"
             >
                 {services.slice(0, visibleServices).map((service, index) => (
-                    <div 
-                        key={index} 
+                    <div
+                        key={index}
                         className="p-8 transition-transform transform bg-gray-800 rounded-lg hover:scale-105 hover:bg-pink-600 hover:shadow-lg"
                     >
                         <div className="mb-6 text-6xl text-yellow-400">{service.icon}</div>

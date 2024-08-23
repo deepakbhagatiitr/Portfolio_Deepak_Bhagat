@@ -1,23 +1,24 @@
 import React from 'react';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGithub, FaPython, FaGitAlt } from 'react-icons/fa';
-import { SiFirebase, SiMongodb, SiTailwindcss, SiBootstrap, SiMysql, SiFlutter, SiNextdotjs, SiCplusplus, SiExpress } from 'react-icons/si';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGithub, FaPython, FaGitAlt, FaRobot } from 'react-icons/fa'; // Added FaRobot for AI
+import { SiFirebase, SiMongodb, SiTailwindcss, SiBootstrap, SiMysql, SiFlutter, SiNextdotjs, SiCplusplus, SiExpress, SiAmazonaws, SiGooglecloud } from 'react-icons/si';
 
 const skills = [
-    { name: 'JAVASCRIPT', icon: <FaJs />, color: '#F7DF1E' },
     { name: 'REACT JS', icon: <FaReact />, color: '#61DAFB' },
     { name: 'NODE JS', icon: <FaNodeJs />, color: '#339933' },
     { name: 'FIREBASE', icon: <SiFirebase />, color: '#FFCA28' },
     { name: 'MONGODB', icon: <SiMongodb />, color: '#47A248' },
-    { name: 'GITHUB', icon: <FaGithub />, color: '#E8E8E8' },
     { name: 'TAILWIND CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
-    { name: 'PYTHON', icon: <FaPython />, color: '#3776AB' }, // Python blue
+    { name: 'PYTHON', icon: <FaPython />, color: '#3776AB' },
     { name: 'BOOTSTRAP', icon: <SiBootstrap />, color: '#7952B3' },
     { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
     { name: 'GIT', icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'FLUTTER', icon: <SiFlutter />, color: '#02569B' }, // Added Flutter
-    { name: 'C++', icon: <SiCplusplus />, color: '#00599C' }, // Added C++ with real icon
-    { name: 'NEXT JS', icon: <SiNextdotjs />, color: '#E8E8E8' }, // Changed Next.js color to light gray
-    { name: 'EXPRESS JS', icon: <SiExpress />, color: '#303030' }, // Changed Express.js color to dark gray
+    { name: 'FLUTTER', icon: <SiFlutter />, color: '#02569B' },
+    { name: 'C++', icon: <SiCplusplus />, color: '#00599C' },
+    { name: 'NEXT JS', icon: <SiNextdotjs />, color: '#E8E8E8' },
+    { name: 'EXPRESS JS', icon: <SiExpress />, color: '#303030' },
+    { name: 'AI', icon: <FaRobot />, color: '#FF5722' }, // Added AI using FaRobot
+    { name: 'AWS', icon: <SiAmazonaws />, color: '#FF9900' }, // Added AWS
+    { name: 'GCP', icon: <SiGooglecloud />, color: '#4285F4' }, // Added GCP
 ];
 
 const Skills = () => {
