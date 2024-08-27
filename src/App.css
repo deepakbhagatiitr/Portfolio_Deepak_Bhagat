@@ -8,3 +8,14 @@
 body{
   height: auto;
 }
+#home {
+  background-image: url('images/home.png'); /* Path to the background image */
+  
+}
+
+/* Hide the background image on sm and larger screens */
+@media (min-width: 576px) {
+  #home {
+      background-image: none;
+  }
+}

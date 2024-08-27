@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
+import homeImage from '../assets/home.png'; // Import the image
 
 const Home = () => {
     const typedElement = useRef(null);
@@ -28,6 +29,7 @@ const Home = () => {
         <div
             className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center bg-cover bg-center sm:bg-none"
             id="home"
+            style={{ backgroundImage: `url(${homeImage})` }} // Use the imported image as the background
         >
 
             {/* Container for the image and text */}
