@@ -6,21 +6,21 @@ import { FaRobot, FaServer } from 'react-icons/fa'; // Added icons for Generativ
 
 const Services = () => {
     const [visibleServices, setVisibleServices] = useState(3); // State to manage visible services
+    const [fadeIn, setFadeIn] = useState(false); // State to manage fade-in effect
 
     const showMoreServices = () => {
-        setFadeIn(true);
+        setFadeIn(true); // Start fade-in effect
         setTimeout(() => {
-            setVisibleServices((prev) => prev + 3);
-            setFadeIn(false);
+            setVisibleServices((prev) => prev + 3); // Increase the number of visible services
+            setFadeIn(false); // End fade-in effect
         }, 300);
-
     };
 
     const showLessServices = () => {
-        setFadeIn(true);
+        setFadeIn(true); // Start fade-in effect
         setTimeout(() => {
             setVisibleServices(3); // Show only 3 services
-            setFadeIn(false);
+            setFadeIn(false); // End fade-in effect
         }, 300);
     };
 
@@ -60,7 +60,7 @@ const Services = () => {
 
             {/* Service Cards Container with Grid System */}
             <div
-                className="grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 lg:grid-cols-3"
+                className={`grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 lg:grid-cols-3 ${fadeIn ? 'fade-in' : ''}`}
             >
                 {services.slice(0, visibleServices).map((service, index) => (
                     <div

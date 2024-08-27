@@ -25,7 +25,7 @@ const ContactForm = () => {
         e.preventDefault();
         if (isFormValid()) {
             try {
-                await axios.post('http://localhost:5000/send-email', form);
+                await axios.post('https://portfolio-backend-f8ja.onrender.com/send-email', form);
                 toast.success('Message sent successfully!', {
                     position: "top-right",
                     autoClose: 2000,

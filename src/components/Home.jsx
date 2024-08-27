@@ -7,7 +7,7 @@ const Home = () => {
     useEffect(() => {
         const options = {
             strings: [
-                'ML/AI Engineer',
+                'AI/ML Engineer',
                 'Developer',
                 'DevOps Engineer'
             ],
@@ -25,7 +25,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center bg-cover bg-center bg-[url('images/home.png')] sm:bg-none" id="home">
+        <div className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center bg-cover bg-center bg-[url('../assets/home.png')] sm:bg-none" id="home">
 
             {/* Container for the image and text */}
             <div className="relative flex flex-col w-full h-full overflow-hidden md:justify-center">
