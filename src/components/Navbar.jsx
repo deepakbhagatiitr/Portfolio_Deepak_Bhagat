@@ -42,15 +42,11 @@ const Navbar = () => {
             // Close the sidenav smoothly
             setIsOpen(false);
 
-            // Use setTimeout to wait for the sidenav to close before navigating
-            setTimeout(() => {
-                smoothScroll(targetId, 1500); // Adjust the duration for smooth scroll
-            }, 500); // Delay matching the CSS transition duration for smooth close
+            // Scroll smoothly to the target section after closing sidenav
+            setTimeout(() => smoothScroll(targetId), 0); // Removed delay
         } else {
-            // For large screens, delay scrolling without closing sidenav
-            setTimeout(() => {
-                smoothScroll(targetId, 1500); // Adjust the duration for smooth scroll
-            }, 300); // Delay for smooth scrolling
+            // Scroll smoothly to the target section for large screens
+            smoothScroll(targetId); // Removed delay
         }
     };
 
