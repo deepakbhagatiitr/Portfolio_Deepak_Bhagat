@@ -26,7 +26,7 @@ const Home = () => {
 
     return (
         <div
-            className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center bg-cover bg-center sm:bg-none"
+            className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center"
             id="home"
         >
 

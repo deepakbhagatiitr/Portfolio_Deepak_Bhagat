@@ -10,7 +10,8 @@ body{
 }
 #home {
   background-image: url('images/home.png'); /* Path to the background image */
-  
+  background-size: cover;
+    background-position: center;
 }
 
 /* Hide the background image on sm and larger screens */
