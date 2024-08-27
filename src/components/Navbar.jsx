@@ -10,7 +10,7 @@ const Navbar = () => {
     };
 
     // Smooth scrolling function with custom duration
-    const smoothScroll = (targetId, duration = 1500) => {
+    const smoothScroll = (targetId, duration = 600) => {
         const targetPosition = document.getElementById(targetId).offsetTop;
         const startPosition = window.pageYOffset;
         const distance = targetPosition - startPosition;
