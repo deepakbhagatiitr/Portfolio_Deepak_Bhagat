@@ -9,6 +9,19 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+    // Function to handle click on anchor tags
+    const handleNavLinkClick = (e, targetId) => {
+        e.preventDefault(); // Prevent default anchor behavior
+
+        // Close the sidenav smoothly
+        setIsOpen(false);
+
+        // Use setTimeout to wait for the sidenav to close before navigating
+        setTimeout(() => {
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        }, 500); // Delay matching the CSS transition duration for smooth close
+    };
+
     return (
         <React.Fragment>
             <header className="flex absolute z-40 top-0 left-0 right-0 items-center justify-between max-w-[1250px] mx-auto bg-black py-4 px-4 sm:px-6 md:px-6 lg:px-6">
@@ -67,23 +80,24 @@ const Navbar = () => {
             <aside className={`fixed top-0 left-0 z-40 w-64 h-full pt-20 bg-red-600 transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:hidden`} id="sidenav-default">
                 <nav className="flex flex-col gap-5 px-4 mt-5 font-medium">
                     <ul className="flex flex-col gap-5">
-                        <li className="relative group decoration-none">
-                            <a href="#home" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
+                        <li className="relative group">
+                            {/* Modify anchor tag to use the handleNavLinkClick function */}
+                            <a href="#home" onClick={(e) => handleNavLinkClick(e, 'home')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
                         </li>
                         <li className="relative group">
-                            <a href="#about" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
+                            <a href="#about" onClick={(e) => handleNavLinkClick(e, 'about')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
                         </li>
                         <li className="relative group">
-                            <a href="#skills" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
+                            <a href="#skills" onClick={(e) => handleNavLinkClick(e, 'skills')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
                         </li>
                         <li className="relative group">
-                            <a href="#services" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
+                            <a href="#services" onClick={(e) => handleNavLinkClick(e, 'services')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
                         </li>
                         <li className="relative group">
-                            <a href="#works" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
+                            <a href="#works" onClick={(e) => handleNavLinkClick(e, 'works')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
                         </li>
                         <li className="relative group">
-                            <a href="#contact" className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
+                            <a href="#contact" onClick={(e) => handleNavLinkClick(e, 'contact')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
                         </li>
                     </ul>
                 </nav>
