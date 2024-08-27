@@ -9,17 +9,49 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
-    // Function to handle click on anchor tags
-    const handleNavLinkClick = (e, targetId) => {
+    // Smooth scrolling function with custom duration
+    const smoothScroll = (targetId, duration = 1500) => {
+        const targetPosition = document.getElementById(targetId).offsetTop;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        const animation = (currentTime) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        };
+
+        const ease = (t, b, c, d) => {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        };
+
+        requestAnimationFrame(animation);
+    };
+
+    // Function to handle click on anchor tags for both sidenav and large screen navbar
+    const handleNavLinkClick = (e, targetId, isSidenav = false) => {
         e.preventDefault(); // Prevent default anchor behavior
 
-        // Close the sidenav smoothly
-        setIsOpen(false);
+        if (isSidenav) {
+            // Close the sidenav smoothly
+            setIsOpen(false);
 
-        // Use setTimeout to wait for the sidenav to close before navigating
-        setTimeout(() => {
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-        }, 500); // Delay matching the CSS transition duration for smooth close
+            // Use setTimeout to wait for the sidenav to close before navigating
+            setTimeout(() => {
+                smoothScroll(targetId, 1500); // Adjust the duration for smooth scroll
+            }, 500); // Delay matching the CSS transition duration for smooth close
+        } else {
+            // For large screens, delay scrolling without closing sidenav
+            setTimeout(() => {
+                smoothScroll(targetId, 1500); // Adjust the duration for smooth scroll
+            }, 300); // Delay for smooth scrolling
+        }
     };
 
     return (
@@ -48,27 +80,27 @@ const Navbar = () => {
                     <nav id="navbar-default" className="flex space-x-8 text-center">
                         <ul className="flex space-x-10">
                             <li className="relative group">
-                                <a href="#home" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
+                                <a href="#home" onClick={(e) => handleNavLinkClick(e, 'home')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="relative group">
-                                <a href="#about" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
+                                <a href="#about" onClick={(e) => handleNavLinkClick(e, 'about')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="relative group">
-                                <a href="#skills" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
+                                <a href="#skills" onClick={(e) => handleNavLinkClick(e, 'skills')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="relative group">
-                                <a href="#services" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
+                                <a href="#services" onClick={(e) => handleNavLinkClick(e, 'services')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="relative group">
-                                <a href="#works" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
+                                <a href="#works" onClick={(e) => handleNavLinkClick(e, 'works')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                             <li className="relative group">
-                                <a href="#contact" className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
+                                <a href="#contact" onClick={(e) => handleNavLinkClick(e, 'contact')} className="block py-1 text-base text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
                                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                             </li>
                         </ul>
@@ -82,22 +114,22 @@ const Navbar = () => {
                     <ul className="flex flex-col gap-5">
                         <li className="relative group">
                             {/* Modify anchor tag to use the handleNavLinkClick function */}
-                            <a href="#home" onClick={(e) => handleNavLinkClick(e, 'home')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
+                            <a href="#home" onClick={(e) => handleNavLinkClick(e, 'home', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Home</a>
                         </li>
                         <li className="relative group">
-                            <a href="#about" onClick={(e) => handleNavLinkClick(e, 'about')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
+                            <a href="#about" onClick={(e) => handleNavLinkClick(e, 'about', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">About</a>
                         </li>
                         <li className="relative group">
-                            <a href="#skills" onClick={(e) => handleNavLinkClick(e, 'skills')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
+                            <a href="#skills" onClick={(e) => handleNavLinkClick(e, 'skills', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Skills</a>
                         </li>
                         <li className="relative group">
-                            <a href="#services" onClick={(e) => handleNavLinkClick(e, 'services')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
+                            <a href="#services" onClick={(e) => handleNavLinkClick(e, 'services', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Services</a>
                         </li>
                         <li className="relative group">
-                            <a href="#works" onClick={(e) => handleNavLinkClick(e, 'works')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
+                            <a href="#works" onClick={(e) => handleNavLinkClick(e, 'works', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Works</a>
                         </li>
                         <li className="relative group">
-                            <a href="#contact" onClick={(e) => handleNavLinkClick(e, 'contact')} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
+                            <a href="#contact" onClick={(e) => handleNavLinkClick(e, 'contact', true)} className="block py-1 text-lg text-center text-white transition-all duration-200 rounded-md sm:text-lg">Contact</a>
                         </li>
                     </ul>
                 </nav>
