@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaPhoneAlt, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,6 +9,7 @@ const ContactForm = () => {
         email: '',
         message: '',
     });
+    const [submitting, setSubmitting] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -23,31 +23,59 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (isFormValid()) {
-            try {
-                await axios.post('https://portfolio-backend-f8ja.onrender.com/send-email', form);
+        if (!isFormValid()) return;
+        setSubmitting(true);
+        try {
+            const response = await fetch('https://formspree.io/f/mqalawjb', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    message: form.message,
+                }),
+            });
+            const data = await response.json();
+            if (response.ok) {
                 toast.success('Message sent successfully!', {
-                    position: "top-right",
+                    position: 'top-right',
                     autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    theme: "light"
+                    theme: 'light',
                 });
-            } catch (error) {
-                toast.error('Failed to send message.', {
-                    position: "top-right",
+                setForm({ name: '', email: '', message: '' });
+            } else {
+                toast.error(data?.errors?.[0]?.message || 'Failed to send message.', {
+                    position: 'top-right',
                     autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    theme: "light"
+                    theme: 'light',
                 });
             }
+        } catch (error) {
+            toast.error('Failed to send message.', {
+                position: 'top-right',
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'light',
+            });
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -117,10 +145,10 @@ const ContactForm = () => {
                         />
                         <button
                             type="submit"
-                            disabled={!isFormValid()}
-                            className={`w-full px-6 py-2 text-base text-white transition duration-300 bg-pink-500 rounded-md sm:w-56 md:px-8 md:py-3 md:text-lg hover:bg-pink-600 ${!isFormValid() ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            disabled={!isFormValid() || submitting}
+                            className={`w-full px-6 py-2 text-base text-white transition duration-300 bg-pink-500 rounded-md sm:w-56 md:px-8 md:py-3 md:text-lg hover:bg-pink-600 ${!isFormValid() || submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
-                            Submit
+                            {submitting ? 'Sending...' : 'Submit'}
                         </button>
                     </form>
                 </div>
