@@ -58,9 +58,9 @@ const ContactForm = () => {
                     <div className="space-y-8 lg:w-2/5">
                         <h2 className="text-4xl font-bold text-left text-white md:text-5xl lg:text-6xl">Contact Me</h2>
                         <div className="flex items-center">
-                            <a href="mailto:deepak988088@gmail.com" className="flex items-center">
+                            <a href="mailto:deepak1@me.iitr.ac.in" className="flex items-center">
                                 <FaEnvelope className="mr-4 text-xl text-pink-500 md:text-2xl" />
-                                <span className="text-base text-white md:text-lg">deepak988088@gmail.com</span>
+                                <span className="text-base text-white md:text-lg">deepak1@me.iitr.ac.in</span>
                             </a>
                         </div>
                         <div className="flex items-center">
@@ -73,18 +73,18 @@ const ContactForm = () => {
                             <a href="https://www.facebook.com/profile.php?id=100017290535071" target="_blank" rel="noopener noreferrer">
                                 <FaFacebookF className="text-xl text-white transition duration-300 cursor-pointer md:text-2xl hover:text-pink-500" />
                             </a>
-                            <a href="https://x.com/?lang=en-in" target="_blank" rel="noopener noreferrer">
+                            {/* <a href="https://x.com/?lang=en-in" target="_blank" rel="noopener noreferrer">
                                 <FaTwitter className="text-xl text-white transition duration-300 cursor-pointer md:text-2xl hover:text-pink-500" />
-                            </a>
-                            <a href="https://www.instagram.com/deepakbhagat__/" target="_blank" rel="noopener noreferrer">
+                            </a> */}
+                            <a href="https://www.instagram.com/deepak.diary/" target="_blank" rel="noopener noreferrer">
                                 <FaInstagram className="text-xl text-white transition duration-300 cursor-pointer md:text-2xl hover:text-pink-500" />
                             </a>
-                            <a href="https://www.linkedin.com/in/deepak-bhagat-233149280/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/deepakbhagatiitr/" target="_blank" rel="noopener noreferrer">
                                 <FaLinkedinIn className="text-xl text-white transition duration-300 cursor-pointer md:text-2xl hover:text-pink-500" />
                             </a>
                         </div>
                         <a
-                            href="/pdf/Deepak_Bhagat_CV.pdf"
+                            href="/pdf/DeepakBhagat_Resume_SDE.pdf"
                             download
                             className="inline-block px-6 py-2 text-base text-white transition duration-300 bg-pink-500 rounded-md md:px-8 md:py-3 md:text-lg hover:bg-pink-600"
                         >

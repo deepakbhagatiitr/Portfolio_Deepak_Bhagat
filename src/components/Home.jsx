@@ -7,8 +7,8 @@ const Home = () => {
     useEffect(() => {
         const options = {
             strings: [
-                'AI/ML Engineer',
-                'Developer',
+                'AI Engineer',
+                'Software Engineer',
                 'DevOps Engineer'
             ],
             typeSpeed: 50,

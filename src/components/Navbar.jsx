@@ -52,7 +52,7 @@ const Navbar = () => {
 
     return (
         <React.Fragment>
-            <header className="flex absolute z-40 top-0 left-0 right-0 items-center justify-between max-w-[1250px] mx-auto bg-black py-4 px-4 sm:px-6 md:px-6 lg:px-6">
+            <header className="flex absolute z-40 top-0 left-0 right-0 items-center justify-between max-w-[1250px] mx-auto bg-transparent py-4 px-4 sm:px-6 md:px-6 lg:px-6">
                 <a href="#home" className="flex items-center space-x-3">
                     <span className="text-3xl font-semibold text-white sm:text-4xl"><span className="text-red-600">D</span>eepak.</span>
                 </a>

@@ -12,7 +12,7 @@ const About = () => {
             <div className="flex flex-col max-w-[1200px] h-full mx-auto  md:flex-row ">
                 <div className="flex w-full h-full mb-6 md:w-5/12 lg:w-4/12 bg-zinc-800 rounded-2xl md:mb-0">
                     <img
-                        src="images/about4.png"
+                        src="images/about4.jpg"
                         alt="Card Image"
                         className="object-cover w-full h-full rounded-lg"
                     />
@@ -22,8 +22,9 @@ const About = () => {
                         About Me
                     </h2>
                     <p className="mb-6 leading-relaxed text-gray-400">
-                        I am Deepak Bhagat, a second-year Mechanical Engineering student at IIT Roorkee, passionate about coding, development, and emerging technologies. With expertise in Full Stack Development, Generative AI, and DevOps, I've built scalable web applications and innovative solutions, focusing on machine learning and AI-driven innovation. I'm eager to collaborate and create transformative ideas—let's connect and make something big!
+                        I’m Deepak Bhagat, a B.Tech. student at IIT Roorkee with a strong passion for building scalable systems and AI-driven tools. I’ve worked on many projects across IITR initiatives and multiple internships, spanning full-stack development, ML, and cloud infrastructure. Proficient in React, Django, Flutter, GCP, and AWS, I aim to craft impactful tech and drive innovation through real-world solutions.
                     </p>
+
                     <nav className="my-5">
                         <ul className="flex mt-4 space-x-4 font-medium md:flex-row md:space-x-8 md:mt-0">
                             {['skills', 'experience', 'education'].map((section) => (
@@ -49,7 +50,7 @@ const About = () => {
                                         DevOps Engineer
                                     </span>
                                     <p className="text-gray-400">
-                                        Managing deployments and cloud infrastructure.
+                                        Deploying scalable cloud-based apps with Docker, GCP, and AWS.
                                     </p>
                                 </div>
                                 <div className="mb-3 space-y-1">
@@ -57,15 +58,15 @@ const About = () => {
                                         Developer
                                     </span>
                                     <p className="text-gray-400">
-                                        Building web and mobile applications.
+                                        Building full-stack web/mobile platforms using React, Django, and Flutter.
                                     </p>
                                 </div>
                                 <div className="space-y-1">
                                     <span className="block font-medium text-pink-500">
-                                        ML/AI Engineer
+                                        AI Engineer
                                     </span>
                                     <p className="text-gray-400">
-                                        Creating intelligent systems.
+                                        Creating LLM-based systems, RAG bots, and intelligent user tools.
                                     </p>
                                 </div>
                             </div>
@@ -74,7 +75,7 @@ const About = () => {
                             <div>
                                 <div className="mb-3 space-y-1">
                                     <span className="block font-medium text-pink-500">
-                                        June, 2024 - August, 2024
+                                        June, 2024 - September, 2024
                                     </span>
                                     <p className="text-gray-400">
                                         Software Developer at Absolute Dimension
@@ -82,18 +83,18 @@ const About = () => {
                                 </div>
                                 <div className="mb-3 space-y-1">
                                     <span className="block font-medium text-pink-500">
-                                        June, 2024
+                                        December, 2024 - February, 2025
                                     </span>
                                     <p className="text-gray-400">
-                                        Full Stack Developer at EazePlace
+                                        Full Stack Developer at Region Infinity
                                     </p>
                                 </div>
                                 <div className="space-y-1">
                                     <span className="block font-medium text-pink-500">
-                                        May, 2024 - June, 2024
+                                        May, 2025 - June, 2025
                                     </span>
                                     <p className="text-gray-400">
-                                        Full Stack Developer at Ryzen Tech
+                                        Software Engineer at Eve
                                     </p>
                                 </div>
                             </div>
@@ -102,10 +103,10 @@ const About = () => {
                             <div>
                                 <div className="space-y-1">
                                     <span className="block font-medium text-pink-500">
-                                        2023
+                                        2023 – Present
                                     </span>
                                     <p className="text-gray-400">
-                                        B-Tech from IIT Roorkee - Present
+                                        B.Tech. in Mechanical Engineering at IIT Roorkee
                                     </p>
                                 </div>
                             </div>
