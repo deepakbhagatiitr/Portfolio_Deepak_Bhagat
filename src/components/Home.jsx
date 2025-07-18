@@ -28,7 +28,7 @@ const Home = () => {
         <div
             className="bg-black h-screen max-w-[1200px] mx-auto flex items-center justify-center bg-cover bg-center sm:bg-none"
             id="home"
-            style={{ backgroundImage: `url(images/home.png)` }} // Use the imported image as the background
+            style={{ backgroundImage: `url(images/home.webp)` }} // Use the imported image as the background
         >
 
             {/* Container for the image and text */}

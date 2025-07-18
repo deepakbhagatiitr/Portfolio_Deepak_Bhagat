@@ -23,7 +23,7 @@ const works = [
     {
         title: "Marketing Website",
         description: "Visionvowresearch",
-        image: "images/marketing.jpg",
+        image: "images/marketing.webp",
         link: "https://www.visionvowresearch.com/",
     },
     {

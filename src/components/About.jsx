@@ -12,7 +12,7 @@ const About = () => {
             <div className="flex flex-col max-w-[1200px] h-full mx-auto  md:flex-row ">
                 <div className="flex w-full h-full mb-6 md:w-5/12 lg:w-4/12 bg-zinc-800 rounded-2xl md:mb-0">
                     <img
-                        src="images/about4.jpg"
+                        src="images/about4.webp"
                         alt="Card Image"
                         className="object-cover w-full h-full rounded-lg"
                     />
